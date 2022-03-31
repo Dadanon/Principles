@@ -1,5 +1,6 @@
 ﻿using System;
 using Principles.Abstraction.Level_1;
+using Principles.Abstraction.Level_2;
 
 namespace Principles
 {
@@ -7,18 +8,11 @@ namespace Principles
     {
         static void Main(string[] args)
         {
-            Car car1 = new Car(carColor: Color.Red, carWeight: 2000);
-            car1.AddGas();
-            car1.AddGas();
-            car1.AddGas();
-            car1.AddGas();
-            car1.AddGas();
-            car1.AddGas();
-            car1.AddGas();
-            car1.AddGas();
-            car1.ReduceGas();
-            car1.ReduceGas();
-            car1.getStats();
+            Truck truck = new Truck();
+            truck.GetStats();
+            Console.WriteLine("");
+            Car car = new Car();
+            car.GetStats();
         }
     }
 }

@@ -12,40 +12,46 @@ namespace Principles.Abstraction.Level_1
     public enum Color { Black, Blue, Green, Red, Yellow };
     class Car
     {
-        private Color color = Color.Black;
-        private float weight = 1000;
-        private float currentSpeed = 0;
-        private float maxSpeed = 140;
-        private float tankCapacity = 30;
-        private float price = 10000;
-        private int currentFuel = 10;
-        private float money = 1000;
+        protected Color color;
+        protected float weight;
+        protected float currentSpeed;
+        protected float maxSpeed;
+        protected float tankCapacity;
+        protected float price;
+        protected int currentFuel;
+        protected float money;
 
-        public Car(Color carColor, float carWeight)
+        public Car()
         {
-            this.color = carColor;
-            this.weight = carWeight;
+            color = Color.Black;
+            weight = 1000;
+            currentSpeed = 0;
+            maxSpeed = 140;
+            tankCapacity = 30;
+            price = 10000;
+            currentFuel = 10;
+            money = 1000;
         }
-
         public void AddGas()
         {
-            if (this.currentFuel > 0)
+            if (currentFuel > 0)
             {
-                if (this.currentSpeed < this.maxSpeed)
+                if (currentSpeed < maxSpeed)
                 {
-                    this.currentSpeed += 20;
-                    this.currentFuel -= 1;
-                    this.money += 2;
-                    Console.WriteLine("Your speed is " + this.currentSpeed + ".");
+                    currentSpeed += 20;
+                    currentFuel -= 1;
+                    money += 2;
+                    Console.WriteLine("Your speed is " + currentSpeed + ".");
+                    Console.WriteLine("Your money is " + money + ".");
 
-                    if (this.currentFuel > 5)
+                    if (currentFuel > 5)
                     {
-                        Console.WriteLine("You have now " + this.currentFuel + " fuel.");
+                        Console.WriteLine("You have now " + currentFuel + " fuel.");
                     } 
                     
-                    else if (this.currentFuel > 0 & this.currentFuel <= 5)
+                    else if (currentFuel > 0 & currentFuel <= 5)
                     {
-                        Console.WriteLine("! You have only " + this.currentFuel + " fuel left !");
+                        Console.WriteLine("! You have only " + currentFuel + " fuel left !");
                     }
                 }
 
@@ -63,10 +69,10 @@ namespace Principles.Abstraction.Level_1
 
         public void ReduceGas()
         {
-            if (this.currentSpeed >= 20)
+            if (currentSpeed >= 20)
             {
-                this.currentSpeed -= 20;
-                Console.WriteLine("Your speed is " + this.currentSpeed + ".");
+                currentSpeed -= 20;
+                Console.WriteLine("Your speed is " + currentSpeed + ".");
             }
 
             else
@@ -77,14 +83,14 @@ namespace Principles.Abstraction.Level_1
 
         public void FillTank()
         {
-            if (this.currentFuel <= 20)
+            if (currentFuel <= 20)
             {
-                if (this.money >= 10)
+                if (money >= 10)
                 {
-                    this.currentFuel += 10;
-                    this.money -= 10;
-                    Console.WriteLine("You have now " + this.currentFuel + " fuel.");
-                    Console.WriteLine("You have now " + this.money + " money.");
+                    currentFuel += 10;
+                    money -= 10;
+                    Console.WriteLine("You have now " + currentFuel + " fuel.");
+                    Console.WriteLine("You have now " + money + " money.");
                 }
 
                 else
@@ -102,7 +108,7 @@ namespace Principles.Abstraction.Level_1
 
         public void Stop()
         {
-            while (this.currentSpeed != 0)
+            while (currentSpeed != 0)
             {
                 ReduceGas();
             }
@@ -117,23 +123,23 @@ namespace Principles.Abstraction.Level_1
 
         public void ChangeColor(Color value)
         {
-            if (this.money >= 100)
+            if (money >= 100)
             {
-                this.money -= 100;
-                this.color = value;
+                money -= 100;
+                color = value;
             }
         }
 
 
         public void TuneCar()
         {
-            if (this.money >= 200)
+            if (money >= 200)
             {
-                this.tankCapacity += 10;
-                this.maxSpeed += 20;
-                this.money -= 200;
-                Console.WriteLine("Your car tank capacity is " + this.tankCapacity + "!");
-                Console.WriteLine("Your car maximal speed is " + this.maxSpeed + "!");
+                tankCapacity += 10;
+                maxSpeed += 20;
+                money -= 200;
+                Console.WriteLine("Your car tank capacity is " + tankCapacity + "!");
+                Console.WriteLine("Your car maximal speed is " + maxSpeed + "!");
             }
 
             else
@@ -143,17 +149,16 @@ namespace Principles.Abstraction.Level_1
         }
 
 
-        public void getStats()
+        public void GetStats()
         {
-            Console.WriteLine("Your car color is: " + this.color);
-            Console.WriteLine("Your car weight is: " + this.weight);
-            Console.WriteLine("Your car current speed is: " + this.currentSpeed);
-            Console.WriteLine("Your car maximum speed is: " + this.maxSpeed);
-            Console.WriteLine("Your car tank capacity is: " + this.tankCapacity);
-            Console.WriteLine("Your car price is: " + this.price);
-            Console.WriteLine("Your car current fuel is: " + this.currentFuel);
-            Console.WriteLine("Your money is: " + this.money);
-
+            Console.WriteLine("Your car color is: " + color);
+            Console.WriteLine("Your car weight is: " + weight);
+            Console.WriteLine("Your car current speed is: " + currentSpeed);
+            Console.WriteLine("Your car maximum speed is: " + maxSpeed);
+            Console.WriteLine("Your car tank capacity is: " + tankCapacity);
+            Console.WriteLine("Your car price is: " + price);
+            Console.WriteLine("Your car current fuel is: " + currentFuel);
+            Console.WriteLine("Your car money is: " + money);
         }
     }
 }
